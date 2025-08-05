@@ -1,1 +1,1 @@
-An autoclicker where you can set a range of times to click in between (1ms - 100ms). This is made with ChatGPT. If you're worried about malware, upload it to VirusTotal.
+An autoclicker where you can set a range of times to click in between (1ms - 100ms). This is made with ChatGPT. If you're worried about malware, upload it to VirusTotal. Made this for testing an autoclicker ac im making just posting this because most of the ones online are malware.
