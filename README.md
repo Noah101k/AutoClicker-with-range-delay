@@ -1,68 +1,65 @@
 An autoclicker where you can set a range of times to click in between (1ms - 100ms). This is made with ChatGPT. If you're worried about malware, upload it to VirusTotal (some security venders will flag it because it messes with clicking stuff). Made this for testing an autoclicker ac im making just posting this because most of the ones online are malware.
 
 
+---
+
+## 🛠 Build Instructions
+
+Follow these steps to build the Auto Clicker into a standalone **Windows `.exe`** file with a custom icon.
+
+### 1. Install Requirements
+
+Make sure you have **Python 3.9+** installed, then install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Install PyInstaller
+
+```bash
+pip install pyinstaller
+```
+
+### 3. Prepare an Icon (Optional)
+
+If you want a custom app icon:
+
+1. Create or download an image (256×256 recommended).
+2. Convert it to `.ico` format using a free tool like [icoconvert.com](https://icoconvert.com).
+3. Save it in the project folder as `autoclicker.ico`.
+
+### 4. Build the `.exe`
+
+Run the following command from the project root (replace `autoclicker.py` with your file name):
+
+```bash
+pyinstaller --onefile --windowed --icon=autoclicker.ico autoclicker.py
+```
+
+**Flags explained:**
+
+* `--onefile` → Single `.exe` file.
+* `--windowed` → Prevents a console window from appearing (GUI mode).
+* `--icon=autoclicker.ico` → Sets the program’s icon.
+
+### 5. Locate Your Executable
+
+After building, your compiled file will be in:
+
+```
+dist/autoclicker.exe
+```
+
+You can now run it on any Windows machine — **no Python required**.
 
 ---
 
-# AutoClicker — Build Instructions
+✅ **Tip:** To reduce `.exe` size and remove temporary files, you can use:
 
-This is a Python auto clicker with a GUI using `tkinter`, `pyautogui`, and `keyboard`.
-Follow these steps to build a standalone Windows executable (`.exe`) from the source code.
-
----
-
-## Requirements
-
-* Python 3.x installed (download from [python.org](https://www.python.org/downloads/))
-  Make sure to check **"Add Python to PATH"** during installation.
-
-* The following Python packages:
-  `pyautogui` and `keyboard`
-  (will be installed via `pip`)
-
-* `pyinstaller` for building the `.exe`
-
----
-
-## Building the Executable
-
-1. Open a command prompt and navigate to the folder containing the source code:
-
-   ```bash
-   cd path\to\your\project
-   ```
-
-2. Install required libraries:
-
-   ```bash
-   pip install pyautogui keyboard pyinstaller
-   ```
-
-3. Build the executable with PyInstaller:
-
-   ```bash
-   pyinstaller --onefile --noconsole --hidden-import=pyautogui --hidden-import=keyboard auto_clicker.py
-   ```
-
-   * `--onefile`: Package everything into a single `.exe` file.
-   * `--noconsole`: Hide the console window when running the GUI.
-   * `--hidden-import`: Ensure these libraries are included correctly.
-
-4. After the build completes, find the standalone executable in the `dist` folder:
-
-   ```
-   dist\auto_clicker.exe
-   ```
-
-5. Run `auto_clicker.exe` to launch the program. You can now share this `.exe` file — it does **not** require Python or any libraries to be installed on the target machine.
-
----
-
-## Notes
-
-* This `.exe` works only on Windows systems.
-
-* If you want to see the console window (for debugging), remove the `--noconsole` option from the build command.
+```bash
+pyinstaller --onefile --windowed --clean --noconfirm --icon=autoclicker.ico autoclicker.py
+```
 
 ---
 
